@@ -1,10 +1,9 @@
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 ruby "2.7.1"
-
-
 
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 
@@ -14,13 +13,19 @@ gem "puma", "~> 4.1"
 
 gem "sass-rails", ">= 6"
 
+gem "bootstrap-sass", "3.4.1"
+
 gem "webpacker", "~> 4.0"
 
 gem "turbolinks", "~> 5"
 
 gem "jbuilder", "~> 2.7"
 
+gem "bcrypt", "3.1.13"
+
 gem "bootsnap", ">= 1.4.2", require: false
+
+gem "rails-i18n"
 
 group :development, :test do
 
