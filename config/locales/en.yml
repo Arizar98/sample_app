@@ -23,4 +23,5 @@ en:
   profile_update: "Profile updated"
   please_login: "Please log in"
   user_deleted: "User deleted"
-  
+
+  unactivated_account: "Account not activated. Check your email for the activation link."
