@@ -11,4 +11,6 @@ Rails.application.configure do
   :port => '2525',
   :authentication => :cram_md5
 }
+
+  config.active_storage.service = :local
 end
