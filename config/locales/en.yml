@@ -11,3 +11,9 @@ en:
   create_my_account: "Create new account"
   welcome_to_the_sample_app!: "Welcome to the sample app!"
   try_again: "Please try again"
+
+  log_in: "Log in"
+  new_user?: "New user? "
+  sign_up_now: "Sign up now!"
+  invalid_email_password_combination: "Invalid email/password combination!"
+  account: "Account"
