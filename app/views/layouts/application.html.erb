@@ -12,12 +12,14 @@
   <body>
   <%= render "layouts/header" %>
   <div class="container">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
+
+    <%= debug params if Rails.env.development? %>
   </div>
 
 </body>
-<<<<<<< HEAD
 
-=======
->>>>>>> 87193c7... Chapter 3
 </html>
