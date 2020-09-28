@@ -1,4 +1,17 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: %i(new create show)
+  before_action :correct_user, only: [:edit, :update]
+
+  def index
+    @users = User.page(params[:page]).per(30)
+  end
+
+  def destroy
+    User.find_by(id: params[:id]).destroy
+    flash[:success] = t "user_deleted"
+    redirect_to users_url
+  end
+
   def show
     @user = User.find_by id: params[:id]
     return if @user
@@ -22,9 +35,40 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by id: params[:id]
+  end
+
+  def update
+    @user = User.find_by id: params[:id]
+    if @user.update_attributes user_params
+      flash[:success] = t "profile_update"
+      redirect_to @user
+    else
+      render "edit"
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation
   end
+
+  # Before filters
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = t "please_login"
+      redirect_to login_url
+    end
+  end
+
+  # Confirms the correct user.
+  def correct_user
+    @user = User.find_by id: params[:id]
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
 end

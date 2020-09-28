@@ -17,3 +17,10 @@ en:
   sign_up_now: "Sign up now!"
   invalid_email_password_combination: "Invalid email/password combination!"
   account: "Account"
+  save_changes: "Save changes"
+  the_form_contains: "The form contains "
+
+  profile_update: "Profile updated"
+  please_login: "Please log in"
+  user_deleted: "User deleted"
+  
