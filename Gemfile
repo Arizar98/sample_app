@@ -18,6 +18,7 @@ gem "jquery-rails"
 gem "faker", "1.7.3"
 gem "kaminari"
 gem "kaminari-bootstrap"
+gem "figaro"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
