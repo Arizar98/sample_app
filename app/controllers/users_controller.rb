@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
+    @microposts = @user.microposts.paginate(page: params[:page])
     return if @user
     flash[:warning] = "User not found"
     redirect_to root_path
@@ -53,16 +54,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation
-  end
-
-  # Before filters
-  # Confirms a logged-in user.
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t "please_login"
-      redirect_to login_url
-    end
   end
 
   # Confirms the correct user.
